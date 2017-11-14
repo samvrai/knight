@@ -1,2 +1,2 @@
 # knight
-The knight tour. The efficient way
+The knight tour. The efficient way.
