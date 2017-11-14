@@ -1,4 +1,10 @@
 class Node:
+    # Tree node
+    # param:
+    #   x:      initial x axis position
+    #   y:      initial y axis position
+    #   pre:    parent (null for tree top)
+
     def __init__(self, x, y, pre):
         self.pre = pre
         self.x = x
@@ -9,6 +15,7 @@ class Node:
         return self.x == n.x and self.y == n.y
 
 
+# Solution tree
 tree = []
 
 
@@ -26,6 +33,10 @@ def main():
 
 
 def horse(n):
+    # Jumping function
+    # params:
+    #   n:  current node
+
     filler = []
     if n.x + 2 <= 8 and n.y + 1 <= 8:
         filler.append(Node(n.x + 2, n.y + 1, n))
@@ -51,6 +62,13 @@ def horse(n):
 
 
 def trim(n, l):
+    # tree trimming function
+    # params:
+    #   n:  current node
+    #   l:  the list of nodes to be trimmed before jump
+    # returns:
+    #   l: the trimmed list
+
     for x in l:
         if n.compare(x):
             l.remove(x)
@@ -60,6 +78,11 @@ def trim(n, l):
 
 
 def print_it(tr, s):
+    # function to print the tree
+    # params:
+    #   tr:     tree node
+    #   s:      string to print
+
     aux = s + str(tr.x) + str(tr.y) + '-'
     if len(tr.next) > 0:
         for t in tr.next:
